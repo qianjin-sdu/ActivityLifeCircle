@@ -1,8 +1,11 @@
 package lifecircle.activity.demo.sde.sdu.edu.activitylifecircle;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 public class SecondaryActivity extends AppCompatActivity {
 
@@ -10,6 +13,14 @@ public class SecondaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secondary);
+        Button back2Main = (Button)findViewById(R.id.back2Main);
+        back2Main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SecondaryActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
         Log.i("Activity02", "onCreate()");
         System.out.println("我是第2个Activity的onCreate(),我开始运行了");
     }
